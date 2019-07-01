@@ -1,0 +1,23 @@
+{
+  "name": "v-blockly",
+  "version": "0.0.1",
+  "description": "Vue component for blockly",
+  "main": "index.js",
+  "scripts": {
+    "test": "storyshot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openearth/v-blockly.git"
+  },
+  "keywords": [
+    "Blockly",
+    "Vue"
+  ],
+  "author": "Fedor Baart",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/openearth/v-blockly/issues"
+  },
+  "homepage": "https://github.com/openearth/v-blockly#readme"
+}
