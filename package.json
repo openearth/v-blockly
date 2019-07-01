@@ -1,8 +1,8 @@
 {
   "name": "v-blockly",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vue component for blockly",
-  "main": "index.js",
+  "main": "src/VBlockly.vue",
   "scripts": {
     "test": "storyshot"
   },
