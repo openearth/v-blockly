@@ -1,2 +1,2 @@
-import VBlockly from 'src/VBlockly'
+import VBlockly from './src/VBlockly'
 export default VBlockly
