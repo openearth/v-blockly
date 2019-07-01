@@ -1,12 +1,6 @@
 <template>
 <div class="blockly-flex">
   <div class="blockly-div"></div>
-  <div class="blockly-code" v-show="showCode">
-    <pre><code class="language-python" v-html="codeFormatted"></code></pre>
-  </div>
-  <div class="blockly-code" v-show="showCode">
-    <pre><code class="language-xml" v-html="xmlFormatted" ></code></pre>
-  </div>
 </div>
 
 </template>
@@ -14,13 +8,7 @@
 <script>
 import Blockly from 'node-blockly/browser'
 
-import Prism from 'prismjs'
-
 import Vue from 'vue'
-
-import xml2js from 'xml2js'
-
-Prism.highlightAll()
 
 // Expose Blockly global for easier debugging
 window.Blockly = Blockly
@@ -48,19 +36,6 @@ export default {
     },
     workspace: {
       type: String
-    },
-    showCode: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    codeFormatted () {
-      return Prism.highlight(this.code, Prism.languages.python, 'python')
-    },
-    xmlFormatted () {
-      let formatted = Prism.highlight(this.xml, Prism.languages.xml, 'xml')
-      return formatted
     }
   },
   mounted () {
@@ -102,7 +77,6 @@ export default {
       currentBlocks: [],
       code: '',
       xml: '',
-      currentWorkspaceJson: null,
       resizeObserver: null
     }
   },
@@ -214,14 +188,6 @@ export default {
       let xml = Blockly.Xml.domToPrettyText(dom)
       // let xml = new XMLSerializer().serializeToString(dom)
       this.xml = xml
-      // TODO: serializae xml to json
-      xml2js.parseString(xml, (err, result) => {
-        if (err) {
-          // toss it up
-          throw (err)
-        }
-        this.currentWorkspaceJson = result.xml
-      })
     }
   }
 }
