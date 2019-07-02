@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/openearth/v-blockly/issues"
   },
+  "peerDependencies": {
+    "blockly": "*"
+  },
   "homepage": "https://github.com/openearth/v-blockly#readme"
 }
