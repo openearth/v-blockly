@@ -4,7 +4,9 @@
   "description": "Vue component for blockly",
   "main": "src/VBlockly.vue",
   "scripts": {
-    "test": "storyshot"
+    "test": "jest",
+    "storybook": "start-storybook -s stories/static -p 6006 ",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,23 @@
     "url": "https://github.com/openearth/v-blockly/issues"
   },
   "peerDependencies": {
-    "blockly": "*"
+    "blockly": "git://github.com/google/blockly.git#1.20190419.0",
+    "vue": "^2.6.10"
   },
-  "homepage": "https://github.com/openearth/v-blockly#readme"
+  "homepage": "https://github.com/openearth/v-blockly#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-knobs": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/vue": "^5.1.9",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
+    "blockly": "git://github.com/google/blockly.git#1.20190419.0",
+    "exports-loader": "^0.7.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10"
+  }
 }
