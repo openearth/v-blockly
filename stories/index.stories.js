@@ -1,16 +1,11 @@
-import Vue from 'vue'
+/* eslint-disable react/react-in-jsx-scope */
 
-// Add vuetify
-import Vuetify from 'vuetify'
-Vue.use(Vuetify)
-import 'vuetify/dist/vuetify.min.css'
-
-import { storiesOf, addDecorator } from '@storybook/vue'
-import { withKnobs, text, number, boolean, array, select, color, date, button } from '@storybook/addon-knobs';
-import { actions } from '@storybook/addon-actions';
-
-
-import VBlockly from '../src/components/VBlockly'
+import { storiesOf } from '@storybook/vue';
+import { action, actions } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
+import { withKnobs, button } from '@storybook/addon-knobs';
+import Vue from 'vue';
+import VBlockly from '../src/VBlockly.vue';
 
 Vue.component('v-blockly', VBlockly)
 

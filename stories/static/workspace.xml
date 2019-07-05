@@ -1,0 +1,8 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks" style="display:none">
+  <block type="text" id="UUGg}MT-fc6?xy]ipl8p" x="113" y="62">
+    <field name="TEXT">Hello World</field>
+  </block>
+  <block type="math_number" id=";rmqV,n4Tp(!t=suUy=!" x="112" y="112">
+    <field name="NUM">3.14159265</field>
+  </block>
+</xml>
