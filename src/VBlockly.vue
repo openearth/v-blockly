@@ -6,12 +6,9 @@
 </template>
 
 <script>
-import Blockly from 'node-blockly/browser'
-
 import Vue from 'vue'
 
-// Expose Blockly global for easier debugging
-window.Blockly = Blockly
+import Blockly from './blockly'
 
 // ignore xml element and block element
 Vue.config.ignoredElements.push('mutation')
