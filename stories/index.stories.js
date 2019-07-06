@@ -37,7 +37,7 @@ storiesOf('VBlockly', module)
       },
       methods: {
         small () {
-          this.$el.style = 'height: 200px; width: 300px; border: 1px solid red;'
+          this.$el.style = 'height: 200px; width: 200px; border: 1px solid red;'
         },
         big () {
           this.$el.style = 'height: 800px; width: 800px; border: 1px solid red;'

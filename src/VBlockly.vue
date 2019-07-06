@@ -193,10 +193,11 @@ export default {
 </script>
 <style>
 /* Fix layout issues. This can't be scoped because edit  widgets are placed outside of the component */
-.blocklyHtmlInput {
-  margin: 2px 0 0 4px;
+.blocklyWidgetDiv {
+  /* Something like this....*/
+  margin: -1.55px 0 0 2.5px;
 }
-
+/*  */
 </style>
 <style scoped>
 
