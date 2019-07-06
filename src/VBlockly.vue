@@ -84,12 +84,10 @@ export default {
         Blockly.svgResize(this.currentWorkspace)
       }
 
-      // setTimeout(() => {
-      //   window.dispatchEvent(new Event('resize'))
-      //   let blocks = this.currentWorkspace.getTopBlocks()
-      //   blocks.map(block => block.setCollapsed(true))
-      //   blocks.map(block => block.setCollapsed(false))
-      // }, 1000)
+      // Fix collapse bug
+      let blocks = this.currentWorkspace.getTopBlocks()
+      blocks.map(block => block.setCollapsed(true))
+      blocks.map(block => block.setCollapsed(false))
     },
     observeResizes () {
       let observer = new ResizeObserver(this.resize)
