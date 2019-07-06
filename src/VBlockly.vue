@@ -79,10 +79,13 @@ export default {
   },
   methods: {
     resize () {
-      // workaround to fix collapse problem
-      if (this.currentWorkspace) {
-        Blockly.svgResize(this.currentWorkspace)
+      // if we don't have a workspace we're done
+      if (!this.currentWorkspace) {
+        return
       }
+
+      // resize the  workspace
+      Blockly.svgResize(this.currentWorkspace)
 
       // Fix collapse bug
       let blocks = this.currentWorkspace.getTopBlocks()
