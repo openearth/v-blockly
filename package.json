@@ -22,8 +22,8 @@
     "test:unit": "vue-cli-service test:unit",
     "storybook": "start-storybook -s stories/static -p 6006 ",
     "build-storybook": "build-storybook",
-    "publish": "npm run build && npm publish",
-    "publish:beta": "npm run build && npm publish --tag beta"
+    "publish": "npm run build && npm version patch && npm publish",
+    "publish:beta": "npm run build && npm version patch && npm publish --tag beta"
   },
   "peerDependencies": {
     "vue": "^2.6.10"
