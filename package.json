@@ -14,7 +14,6 @@
     "url": "https://github.com/openearth/v-blockly/issues"
   },
   "version": "0.2.2",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib  --name v-blockly src/VBlockly.vue",
