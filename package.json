@@ -16,7 +16,7 @@
   "version": "0.2.13",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib  --name v-blockly src/VBlockly.vue",
+    "build": "vue-cli-service build --target lib  --name VBlockly src/VBlockly.vue",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "storybook": "start-storybook -s stories/static -p 6006 ",
@@ -27,7 +27,7 @@
   "peerDependencies": {
     "vue": "^2.6.10"
   },
-  "main": "dist/v-blockly.umd.js",
+  "main": "dist/VBlockly.umd.js",
   "devDependencies": {
     "@babel/core": "^7.5.0",
     "@storybook/addon-actions": "^5.1.9",
