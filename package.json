@@ -17,16 +17,16 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib  --name v-blockly src/wrapper.js",
+    "build": "vue-cli-service build --target lib  --name v-blockly src/VBlockly.vue",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "storybook": "start-storybook -s stories/static -p 6006 ",
     "build-storybook": "build-storybook"
   },
-  "dependencies": {
-    "core-js": "^2.6.5",
+  "peerDependencies": {
     "vue": "^2.6.10"
   },
+  "main": "dist/v-blockly.umd.js",
   "devDependencies": {
     "@babel/core": "^7.5.0",
     "@storybook/addon-actions": "^5.1.9",
@@ -34,10 +34,6 @@
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
     "@storybook/vue": "^5.1.9",
-    "babel-loader": "^8.0.6",
-    "babel-preset-vue": "^2.0.2",
-    "vue": "^2.6.10",
-    "vue-loader": "^15.7.0",
     "@vue/cli-plugin-babel": "^3.9.0",
     "@vue/cli-plugin-eslint": "^3.9.0",
     "@vue/cli-plugin-unit-jest": "^3.9.0",
@@ -47,11 +43,16 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
     "blockly": "git://github.com/google/blockly.git#1.20190419.0",
     "css-loader": "^3.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "exports-loader": "^0.7.0",
+    "vue": "^2.6.10",
+    "core-js": "^2.6.5",
+    "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.37.0"
   },
