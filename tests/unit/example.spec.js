@@ -1,12 +1,16 @@
 import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+const jsdom = require("jsdom")
+const { JSDOM } = jsdom
+global.dom = new JSDOM('<!doctype html><html><body></body></html>')
+global.window = dom.window
+import VBlockly from '@/VBlockly'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).toMatch(msg)
-  })
-})
+
+// describe('VBlockly.vue', () => {
+//   it('renders', () => {
+//     const wrapper = shallowMount(VBlockly, {
+//       propsData: { }
+//     })
+//     expect(wrapper.text()).toExist()
+//   })
+// })
