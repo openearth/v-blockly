@@ -22,3 +22,6 @@ because we are import blockly using a wrapped imported module.
 This package contains some examples in a storybook that you can run with:
 
     npm run storybook
+
+# Example
+You can see a minimal example in this [codesandbox](https://codesandbox.io/s/v-blockly-demo-lp2h7).
