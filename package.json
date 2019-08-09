@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/openearth/v-blockly/issues"
   },
-  "version": "0.2.15",
+  "version": "0.2.16",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib  --name VBlockly src/VBlockly.vue",
