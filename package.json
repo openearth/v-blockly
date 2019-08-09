@@ -1,13 +1,5 @@
 {
   "name": "v-blockly",
-  "version": "0.1.5",
-  "description": "Vue component for blockly",
-  "main": "src/VBlockly.vue",
-  "scripts": {
-    "test": "jest",
-    "storybook": "start-storybook -s stories/static -p 6006 ",
-    "build-storybook": "build-storybook"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/openearth/v-blockly.git"
@@ -21,11 +13,21 @@
   "bugs": {
     "url": "https://github.com/openearth/v-blockly/issues"
   },
+  "version": "0.2.22",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --target lib  --name VBlockly src/VBlockly.vue",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit",
+    "storybook": "start-storybook -s stories/static -p 6006 ",
+    "build-storybook": "build-storybook",
+    "publish:prod": "npm version patch && npm run build && npm publish",
+    "publish:beta": "npm version patch && npm run build && npm publish --tag beta"
+  },
   "peerDependencies": {
-    "blockly": "git://github.com/google/blockly.git#1.20190419.0",
     "vue": "^2.6.10"
   },
-  "homepage": "https://github.com/openearth/v-blockly#readme",
+  "main": "dist/VBlockly.umd.js",
   "devDependencies": {
     "@babel/core": "^7.5.0",
     "@storybook/addon-actions": "^5.1.9",
@@ -33,12 +35,81 @@
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
     "@storybook/vue": "^5.1.9",
+    "@vue/cli-plugin-babel": "^3.9.0",
+    "@vue/cli-plugin-eslint": "^3.9.0",
+    "@vue/cli-plugin-unit-jest": "^3.9.0",
+    "@vue/cli-service": "^3.9.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "blockly": "git://github.com/google/blockly.git#1.20190419.0",
+    "core-js": "^2.6.5",
+    "css-loader": "^3.1.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
     "exports-loader": "^0.7.0",
+    "imports-loader": "^0.8.0",
+    "jsdom": "^15.1.1",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.37.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.vue$": "vue-jest",
+      ".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "snapshotSerializers": [
+      "jest-serializer-vue"
+    ],
+    "testMatch": [
+      "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
+    ],
+    "testURL": "http://localhost/",
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
   }
 }
