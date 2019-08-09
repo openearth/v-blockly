@@ -6,11 +6,11 @@ module.exports = {
     module: {
       rules: [
         {
-          test: /blockly\/blocks_compressed\.js/,
+          test: /blockly\/blockly_compressed\.js/,
           use: 'exports-loader?Blockly,goog'
         },
         {
-          test: /blockly\/blockly_compressed\.js/,
+          test: /blockly\/blocks_compressed\.js/,
           use: 'imports-loader?Blockly=>window.Blockly,goog=>window.goog'
         },
         {
