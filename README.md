@@ -8,7 +8,9 @@ To download this package, install it through npm:
 
     npm install --save v-blockly
     import VBlockly from 'v-blockly'
+    // As a side effect the Blockly object is available on the window object
     Vue.component('v-blockly', VBlockly)
+    
 
 And then in your vue template.
 
