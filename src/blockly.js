@@ -15,4 +15,7 @@ window.goog = goog
 require('blockly/msg/js/en.js')
 // eslint-disable-next-line import/no-webpack-loader-syntax
 require('blockly/blocks_compressed.js')
-export default Blockly
+export {
+  Blockly,
+  goog
+}
