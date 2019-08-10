@@ -159,21 +159,22 @@ let VBlockly = {
       return promise
     },
     workspaceChanged (event) {
+      let name = event.type
       if (event.type === Blockly.Events.BLOCK_CHANGE) {
-        this.$emit(event.type, {
+        this.$emit(name, {
           event,
           workspace: this.currentWorkspace,
           block: this.currentWorkspace.getBlockById(event.blockId)
         })
       } else if (event.type === Blockly.Events.BLOCK_CREATE) {
-        this.$emit(event.type, {
+        this.$emit(name, {
           event,
           workspace: this.currentWorkspace,
           block: this.currentWorkspace.getBlockById(event.blockId)
         })
       } else {
         // for all other events emit the workspace
-        this.$emit(event.type, {
+        this.$emit(name, {
           event,
           workspace: this.currentWorkspace
         })
