@@ -8,7 +8,7 @@
 <script>
 import Vue from 'vue'
 
-import Blockly from './blockly'
+import { Blockly, goog } from './blockly'
 
 // ignore xml element and block element
 Vue.config.ignoredElements.push('mutation')
@@ -19,7 +19,8 @@ Vue.config.ignoredElements.push('variables')
 Vue.config.ignoredElements.push('variable')
 Vue.config.ignoredElements.push('field')
 
-export default {
+// exported at the end of this script
+let VBlockly = {
   name: 'VBlockly',
   props: {
     toolbox: {
@@ -103,16 +104,16 @@ export default {
         return new Promise((resolve) => { resolve(null) })
       }
       let promise = fetch(this.toolbox)
-        .then(resp => {
-          return resp.text()
-        })
-        .then(text => {
-          let parser = new DOMParser()
-          let doc = parser.parseFromString(text, 'application/xml')
-          // append the xml elemt to this document
-          let toolbox = doc.firstChild
-          return toolbox
-        })
+          .then(resp => {
+            return resp.text()
+          })
+          .then(text => {
+            let parser = new DOMParser()
+            let doc = parser.parseFromString(text, 'application/xml')
+            // append the xml elemt to this document
+            let toolbox = doc.firstChild
+            return toolbox
+          })
       return promise
     },
     loadBlocks () {
@@ -120,9 +121,9 @@ export default {
         return new Promise(resolve => resolve([]))
       }
       let promise = fetch(this.blocks)
-        .then(resp => {
-          return resp.json()
-        })
+          .then(resp => {
+            return resp.json()
+          })
       return promise
     },
     loadStubs () {
@@ -130,14 +131,14 @@ export default {
         return new Promise((resolve) => { resolve(null) })
       }
       let promise = fetch(this.stubs)
-        .then(resp => {
-          return resp.text()
-        })
-        .then(text => {
-          // TODO: use src??
-          // eslint-disable-next-line
+          .then(resp => {
+            return resp.text()
+          })
+          .then(text => {
+            // TODO: use src??
+            // eslint-disable-next-line
             return eval(text)
-        })
+          })
       return promise
     },
     loadWorkspace () {
@@ -145,16 +146,16 @@ export default {
         return new Promise((resolve) => { resolve(null) })
       }
       let promise = fetch(this.workspace)
-        .then(resp => {
-          return resp.text()
-        })
-        .then(text => {
-          let parser = new DOMParser()
-          let doc = parser.parseFromString(text, 'application/xml')
-          // append the xml elemt to this document
-          let toolbox = doc.firstChild
-          return toolbox
-        })
+          .then(resp => {
+            return resp.text()
+          })
+          .then(text => {
+            let parser = new DOMParser()
+            let doc = parser.parseFromString(text, 'application/xml')
+            // append the xml elemt to this document
+            let toolbox = doc.firstChild
+            return toolbox
+          })
       return promise
     },
     workspaceChanged (event) {
@@ -164,15 +165,14 @@ export default {
           workspace: this.currentWorkspace,
           block: this.currentWorkspace.getBlockById(event.blockId)
         })
-      }
-      if (event.type === Blockly.Events.BLOCK_CREATE) {
+      } else if (event.type === Blockly.Events.BLOCK_CREATE) {
         this.$emit(event.type, {
           event,
           workspace: this.currentWorkspace,
           block: this.currentWorkspace.getBlockById(event.blockId)
         })
-      }
-      if (event.type === Blockly.Events.BLOCK_DELETE) {
+      } else {
+        // for all other events emit the workspace
         this.$emit(event.type, {
           event,
           workspace: this.currentWorkspace
@@ -188,6 +188,12 @@ export default {
       this.xml = xml
     }
   }
+}
+// also  export Blockly  and goog
+export {
+  VBlockly as default,
+  Blockly,
+  goog
 }
 
 </script>

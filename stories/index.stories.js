@@ -51,7 +51,7 @@ storiesOf('VBlockly', module)
   })
   .add('workspace with events', () => {
     return {
-      template: `<div><v-blockly workspace="workspace.xml" style="width:300px; height:300px; float:left;" @change="change"></v-blockly></div>`,
-      methods: actions('change')
+      template: `<div><v-blockly workspace="workspace.xml" style="width:300px; height:300px; float:left;" @change="change" @ui="ui"  @create="create"></v-blockly></div>`,
+      methods: actions('change', 'delete', 'ui', 'create')
     }
   })
